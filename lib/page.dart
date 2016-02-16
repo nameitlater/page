@@ -1,5 +1,54 @@
+
 library page;
 
+import 'package:js/js.dart';
+import 'dart:js';
+
+final Expando _dataExpando = new Expando<JsPathContext>();
+
+@JS()
+@anonymous
+class JsPathContext {
+  external String get path;
+  external dynamic get params;
+  external factory JsPathContext({String path, dynamic params});
+}
+
+class PathContext {
+  JsPathContext _js;
+
+  PathContext.fromJsPathContext(this._js);
+
+  String get path => _js.path;
+  dynamic get params => _js.params;
+
+  operator [](index) {
+    Map data = _dataExpando[_js];
+    return data != null ? data[index] : null;
+  }
+
+  operator []=(index, value) {
+    Map data = _dataExpando[_js];
+    if(data != null){
+      data[index] = value;
+    }else {
+      data = {index:value};
+      _dataExpando[_js] = data;
+    }
+  }
+
+}
+
+@JS('page')
+external page(path, [fn]);
+
+@JS('page.redirect')
+external redirect(src, [dst]);
+
+@JS('page.start')
+external start([options]);
+
+/*
 import 'dart:js';
 
 typedef void Callback(context, next);
@@ -34,3 +83,4 @@ _wrapCallback(fn){
     fn(context,next);
   };
 }
+*/

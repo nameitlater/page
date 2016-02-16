@@ -1,0 +1,29 @@
+
+<dom-module id="main-app">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <div>
+      <span on-click="goToHome">home</span>
+      <span on-click="goToOther">other</span>
+    </div>
+
+    <template is='dom-if' if='{{checkPlace(place, "home")}}'>
+      home
+    </template>
+
+    <template is='dom-if' if='{{checkPlace(place, "other")}}'>
+      other
+    </template>
+
+
+  </template>
+</dom-module>
+
