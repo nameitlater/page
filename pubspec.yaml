@@ -9,12 +9,12 @@ environment:
 
 dependencies:
   browser: ^0.10.0
-  polymer_elements: ^1.0.0-rc.8
-  polymer: ^1.0.0-rc.15
+  polymer_elements: ^1.0.0-rc.9
+  polymer: ^1.0.0-rc.18
   web_components: ^0.12.0
   logging: ^0.11.0
   js: ^0.6.0
-  dart_to_js_script_rewriter: ^0.1.0
+  dart_to_js_script_rewriter: ^1.0.0
   func: ^0.1.0
 
 dev_dependencies:

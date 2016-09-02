@@ -13,8 +13,8 @@ main(){
 
   setUp((){
 
-    page.callbacks = [];
-    page.exits = [];
+  //  page.callbacks = [];
+  //  page.exits = [];
 
     page.page('*', (context,next) {
       called = true;

@@ -1,4 +1,4 @@
-
+ @JS()
 library page;
 
 import 'package:js/js.dart';
